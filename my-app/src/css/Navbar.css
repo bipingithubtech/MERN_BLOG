@@ -1,0 +1,32 @@
+.nav_div{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 20px 10px;
+
+    width: 160vb;
+    margin-left: 150px;
+}
+.nav_div .active{
+    padding-bottom: 2px;
+    border-bottom: 2px orangered;
+}
+.list{
+    display: flex;
+    justify-content:space-between;
+    gap:20px;
+    list-style: none;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+
+
+}
+
+.link{
+    margin-right: 30px;
+}
+.nav_div h2{
+    color: tomato;
+    font-weight: bolder;
+}
