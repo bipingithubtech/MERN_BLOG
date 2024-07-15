@@ -8,6 +8,7 @@ import profileRouter from "./Routes.js/Profile.js";
 import postRouter from "./Routes.js/PostRoute.js";
 import commentRouter from "./Routes.js/CommentsRoute.js";
 import cookieParser from "cookie-parser";
+import multer from "multer";
 
 dotenv.config();
 
@@ -16,20 +17,20 @@ app.use(cookieParser());
 
 // Middleware to parse JSON bodies
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true })); // Fixed to use bodyParser
-app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+// Configure CORS
 const corsOptions = {
-  origin: "*", // Allow all origins
-  methods: "GET,POST", // Allow only these methods
-  credentials: true, // Fixed typo
+  origin: "http://localhost:3000", // specify the origin you want to allow
+  credentials: true, // enable set cookie
 };
 app.use(cors(corsOptions));
 
+// Your routes
 app.use("/api/user", router);
 app.use("/api/profile", profileRouter);
-app.use("api/post", postRouter);
-app.use("api/comment", commentRouter);
+app.use("/api/post", postRouter);
+app.use("/api/comment", commentRouter);
 
 const connectDb = async () => {
   try {
@@ -39,7 +40,18 @@ const connectDb = async () => {
     console.log("Error while connecting to DB", error); // Added error logging
   }
 };
-
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.img);
+  },
+});
+const upload = multer({ storage: storage });
+app.post("api/upload", upload.single("file"), (req, res) => {
+  res.status(200).json("image uploaded");
+});
 const port = process.env.PORT || 3000; // Default to port 3000 if not set
 app.listen(port, () => {
   console.log(`Listening to port number ${port}`);

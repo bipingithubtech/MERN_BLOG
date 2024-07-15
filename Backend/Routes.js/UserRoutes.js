@@ -76,5 +76,15 @@ router.get("/logout", (req, res) => {
     res.status(500).send("unable to logout", err);
   }
 });
+router.get("/refetch", async (req, res) => {
+  const token = req.cookies.token;
+  jwt.verify(token, process.env.secret, {}, async (err, data) => {
+    if (err) {
+      res.status(500);
+    } else {
+      res.status(200).json(data);
+    }
+  });
+});
 
 export default router;

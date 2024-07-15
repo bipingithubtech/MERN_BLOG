@@ -1,0 +1,20 @@
+.inner{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+ border: 2px solid black;
+  color: white;
+  background-color: black;
+
+}
+.footer{
+  
+    height:210px ;
+ 
+    background-color: rgb(73, 3, 3);
+}
+.inner h2{
+    color: rgb(151, 39, 207);
+    font-weight: bolder;
+   
+}

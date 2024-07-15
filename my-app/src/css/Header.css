@@ -1,40 +1,52 @@
-
-    
-    
-.header {
-
-    border-radius: 7px;
-    width: 160vb;
-   
-    margin-left: 150px;
- background: url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1398&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat;
-    background-size:cover;
-    height: 40vw;
-    position: relative;
-}
-.header_content{
-    position:absolute;
+.register{
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    max-width: 50%;
-    bottom: 10%;
-    left: 3vw;
-    color: rgb(231, 229, 229);
-    animation: fadeID 2s;
+    width: 30vw;
+    justify-content: center;
+   border-radius: 6px;
+    position: relative;
+    height: 60vh;
+    margin-top: 10%;
+    align-items: center;
+ 
+    box-shadow: 6px 4px rgb(26, 0, 31) ;
+    justify-content: space-between;
+
+
+    
+
+}
+
+label{
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: -20px;
     
 }
-p{
-    font-size: 25px;
-    color: rgb(14, 13, 13);
-    font-weight: bolder;
+input{
+    width: 70%;
+    border-radius: 7px;
+    border: none;
+    gap:5px;
+    padding: 5px 0px 5px 5px;
+    
 }
-button{
-    width: 100px;
-    border-radius: 5px;
-}
- .header h1{
-    font-weight: bolder;
-    text-transform: capitalize;
-    color: rgb(214, 227, 238);
+
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 98vw;
+    align-items: center;
+  
+    height: 80vh;
+    position: relative;
+    background-color: rgb(229, 196, 245);
+    margin: auto;
+    margin-top: 20px;
+    
+    
+    
+    
+
+    
 }
