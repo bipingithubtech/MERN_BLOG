@@ -9,8 +9,12 @@ import postRouter from "./Routes.js/PostRoute.js";
 import commentRouter from "./Routes.js/CommentsRoute.js";
 import cookieParser from "cookie-parser";
 import multer from "multer";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cookieParser());
@@ -18,6 +22,8 @@ app.use(cookieParser());
 // Middleware to parse JSON bodies
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+// In your Express server setup
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 // Configure CORS
 const corsOptions = {
@@ -45,11 +51,16 @@ const storage = multer.diskStorage({
     cb(null, "images");
   },
   filename: (req, file, cb) => {
-    cb(null, req.body.img);
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, file.fieldname + "-" + uniqueSuffix + "-" + file.originalname);
   },
 });
+
 const upload = multer({ storage: storage });
-app.post("api/upload", upload.single("file"), (req, res) => {
+
+// Corrected route path with leading /
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  console.log("file uploaded :", req.file);
   res.status(200).json("image uploaded");
 });
 const port = process.env.PORT || 3000; // Default to port 3000 if not set

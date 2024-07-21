@@ -8,12 +8,30 @@ const commentRouter = express.Router();
 
 commentRouter.post("/create", verifyToken, async (req, res) => {
   try {
-    const newComent = await Comment(req.body);
-    const savedComment = await newComent.save();
+    console.log("Request body:", req.body); // Log the request body
 
+    // Ensure the necessary fields are provided
+    const { commentPost, author, userId, PostId } = req.body;
+    if (!commentPost || !author || !userId || !PostId) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    // Create a new comment instance
+    const newComment = new Comments({
+      commentPost,
+      author,
+      userId,
+      PostId,
+    });
+
+    // Save the new comment to the database
+    const savedComment = await newComment.save();
+
+    // Return the saved comment in the response
     res.status(200).json(savedComment);
   } catch (err) {
-    res.status(500).json(err);
+    console.error("Error saving comment:", err); // Log the error
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
@@ -22,7 +40,7 @@ commentRouter.post("/create", verifyToken, async (req, res) => {
 commentRouter.put("/:id", verifyToken, async (req, res) => {
   try {
     const updateComment = await Comments.findByIdAndUpdate(
-      req.prams.id,
+      req.params.id,
       { $set: req.body },
       { new: true }
     );

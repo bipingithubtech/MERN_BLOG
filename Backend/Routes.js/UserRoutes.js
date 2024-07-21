@@ -40,30 +40,35 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      console.log("invalid user");
+      return res.status(400).json({ message: "Invalid email or password" });
     }
     const result = await bcrypt.compare(password, user.password);
     if (result) {
       const token = jwt.sign(
-        { _id: user._id, email: user.email },
-
+        { _id: user._id, email: user.email, username: user.username },
         process.env.jwt,
         { expiresIn: "1d" }
       );
 
       return res
-        .status(201)
+        .status(200)
         .cookie("jwtToken", token, {
           httpOnly: true,
           secure: true,
           sameSite: "none",
         })
-        .send(token);
+        .json({
+          token,
+          user: { _id: user._id, email: user.email, username: user.username },
+        });
+    } else {
+      return res.status(400).json({ message: "Invalid email or password" });
     }
   } catch (err) {
     res.status(500).send(err);
   }
 });
+
 //  logout
 
 router.get("/logout", (req, res) => {
@@ -77,7 +82,7 @@ router.get("/logout", (req, res) => {
   }
 });
 router.get("/refetch", async (req, res) => {
-  const token = req.cookies.token;
+  const token = req.cookies.jwtToken;
   jwt.verify(token, process.env.secret, {}, async (err, data) => {
     if (err) {
       res.status(500);

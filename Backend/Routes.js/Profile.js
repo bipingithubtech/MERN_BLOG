@@ -8,9 +8,8 @@ import Comment from "../model/Comment.js";
 import Post from "../model/Post.js";
 
 const profileRouter = express.Router();
-//  update user
 
-profileRouter.put("/:id", async (req, res) => {
+profileRouter.put("/:id", verifyToken, async (req, res) => {
   try {
     if (req.body.password) {
       const salt = await bcrypt.genSalt(12); // Await added here
@@ -35,7 +34,7 @@ profileRouter.put("/:id", async (req, res) => {
 });
 
 // deleteuser
-profileRouter.delete("/id", verifyToken, async (req, res) => {
+profileRouter.delete("/:id", verifyToken, async (req, res) => {
   const id = req.params.id;
   await User.findByIdAndDelete(id);
 
@@ -45,17 +44,16 @@ profileRouter.delete("/id", verifyToken, async (req, res) => {
 });
 // find user
 
-profileRouter.get("/id", verifyToken, async (req, res) => {
-  const userId = req.params.userId;
+profileRouter.get("/:id", verifyToken, async (req, res) => {
   try {
-    if (userId) {
-      await User.findById(userId);
-    } else {
-      res.status(404).send("user not found");
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
     }
+    res.status(200).json(user);
   } catch (err) {
-    console.log(err);
-    res.status(500).send("error while calling user", err);
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
   }
 });
 

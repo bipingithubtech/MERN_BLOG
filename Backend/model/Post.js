@@ -47,7 +47,6 @@ const PostUser = new mongoose.Schema(
     desc: {
       type: String,
       required: true,
-      unique: true,
     },
     photo: {
       type: String,
@@ -56,7 +55,6 @@ const PostUser = new mongoose.Schema(
     username: {
       type: String,
       required: true,
-      unique: true,
     },
     userId: {
       type: String,
