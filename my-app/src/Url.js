@@ -1,1 +1,2 @@
-export const url = "http://localhost:8000";
+const IF = "http://localhost:8000/images/";
+export default IF;

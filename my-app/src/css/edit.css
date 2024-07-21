@@ -1,0 +1,120 @@
+/* General Styles for the Edit Page */
+.edit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .edit-form {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 800px;
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .edit-form h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .edit-form input[type="text"],
+  .edit-form textarea,
+  .edit-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }
+  
+  .edit-form input[type="text"]:focus,
+  .edit-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .edit-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .edit-form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .edit-form img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e3e3e4;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .category-item p {
+    margin: 0;
+  }
+  
+  .category-item:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .category-item .remove-icon {
+    cursor: pointer;
+    color: #e74c3c;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .category-item .remove-icon:hover {
+    color: #c0392b;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

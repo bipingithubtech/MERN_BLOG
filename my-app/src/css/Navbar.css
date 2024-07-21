@@ -1,40 +1,153 @@
-.nav_div{
+/* Navbar Container */
+.nav_div {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     padding: 20px 10px;
-border: 2px solid black;
+    border: 2px solid black;
     width: 100%;
-   background-color: black;
- 
-}
-.nav_div .active{
+    background-color: black;
+    animation: fadeInNavbar 1s ease-in-out;
+  }
+  
+  /* Active State */
+  .nav_div .active {
     padding-bottom: 2px;
-    border-bottom: 2px orangered;
-}
-.list{
+    border-bottom: 2px solid orangered;
+  }
+  
+  /* Navbar List */
+  .list {
     display: flex;
-    justify-content:space-between;
-    gap:20px;
+    justify-content: space-between;
+    gap: 20px;
     list-style: none;
     font-size: 25px;
     color: rgb(255, 255, 255);
     font-weight: bold;
-
-
-}
-
-.link{
+    animation: slideInList 1s ease-in-out;
+  }
+  
+  /* Navbar Links */
+  .link {
     margin-right: 30px;
-}
-.nav_div h2{
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .link:hover {
+    color: #ff9900; /* Highlight color on hover */
+  }
+  
+  /* Navbar Title */
+  .nav_div h2 {
     color: tomato;
     font-weight: bolder;
-}
-input[type="text"] {
+    animation: fadeInTitle 1.5s ease-in-out;
+  }
+  
+  /* Input Style */
+  input[type="text"] {
     width: 200px; /* Adjust the width as needed */
     padding: 5px 10px; /* Adjust the padding as needed */
     border: 1px solid #ced4da;
     border-radius: 4px;
     font-size: 14px;
+    transition: border-color 0.3s ease;
   }
+  
+  input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Search Icon */
+  .navbar-search-icon {
+    margin-left: 10px;
+    margin-top: 3px;
+    cursor: pointer;
+    padding: 1px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navbar-search-icon:hover {
+    background-color: #333;
+    transform: scale(1.1);
+  }
+  
+  /* Navbar User Links */
+  .nav_user-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    animation: fadeInLinks 1s ease-in-out;
+  }
+  
+  /* Navbar Button (Menu) */
+  .nav_user-links .menu-btn {
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    margin-right: 180px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav_user-links .menu-btn:hover {
+    color: #ff9900;
+  }
+  
+  /* Animations */
+  @keyframes fadeInNavbar {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInList {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInTitle {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInLinks {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  

@@ -1,92 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../context/Context";
-import Navbar from "./Navbar";
+
 import "../css/home.css";
-import { useLocation } from "react-router";
+
 import axios from "axios";
 import { Link } from "react-router-dom";
-import HomePost from "./HomePost";
+
 import Loader from "./Loader";
 
 const Home = () => {
-  const { search } = useLocation();
-  const { user } = useContext(UserContext);
-  const [post, setPost] = useState([]);
-  const [noResult, setResult] = useState(false);
-  const [loader, setLoader] = useState(false);
-  const [cat, setCat] = useState([]);
-  const [filter, setFilter] = useState([]);
-
-  const fetchPost = async () => {
-    setLoader(true);
-    try {
-      const res = await axios.get("http://localhost:8000/api/post/" + search);
-      setPost(res.data);
-      setFilter(res.data);
-      const catag = res.data.map((item) => {
-        return item.categories;
-      });
-      let sets = new Set();
-      catag.forEach((category) => {
-        category?.forEach((cata) => {
-          if (catag.length > 0) sets.add(cata);
-        });
-      });
-      setCat(Array.from(sets));
-      console.log(res.data);
-      if (res.data.length === 0) {
-        setResult(true);
-      } else {
-        setResult(false);
-      }
-    } catch (err) {
-      console.log(err);
-      setLoader(true);
-    }
-  };
-
-  useEffect(() => {
-    fetchPost();
-  }, [search]);
-
-  const filterData = (filterData) => {
-    let newPost = post.filter((pos) => {
-      return pos?.categories.include(filter);
-    });
-    setFilter(newPost);
-  };
-
   return (
-    <>
-      <Navbar />
-      <div className="homepage">
-        <div>
-          {cat.length &&
-            cat?.map((category) => {
-              return (
-                <button onClick={() => filterData(category)}>{category}</button>
-              );
-            })}
-        </div>
-        <div>
-          {loader ? (
-            <div>
-              <Loader />
-            </div>
-          ) : !noResult ? (
-            filter.map((post) => {
-              <div>
-                <Link to={user ? `posts/post/${post._id}` : "/login"}>
-                  <HomePost key={post._id} post={post} />
-                </Link>
-              </div>;
-            })
-          ) : (
-            <h3>no post found</h3>
-          )}
-        </div>
+    <div className="home-container">
+      <div className="home-left"></div>
+      <div className="home-right">
+        <h1 className="title ">Write a Blog with Us</h1>
+        <p className="description">
+          Share your insights and experiences with the world! Our platform makes
+          it easy to publish and manage your blog posts. Whether you're a
+          seasoned writer or just starting, you'll find the tools you need to
+          create amazing content.
+        </p>
+        <h2>Login with us</h2>
       </div>
-    </>
+    </div>
   );
 };
 

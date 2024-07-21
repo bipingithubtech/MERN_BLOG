@@ -1,52 +1,113 @@
-.register{
+/* General Styles */
+.bodys {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, rgba(220, 200, 240, 0.7), rgba(255, 255, 255, 0.7));
+}
+
+/* Main Container */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+    background-color: rgb(240, 226, 247);
+    margin-top: 20px;
+}
+
+/* Register Form Container */
+.register {
     display: flex;
     flex-direction: column;
     width: 30vw;
-    justify-content: center;
-   border-radius: 6px;
-    position: relative;
-    height: 60vh;
-    margin-top: 10%;
-    align-items: center;
- 
-    box-shadow: 6px 4px rgb(26, 0, 31) ;
-    justify-content: space-between;
-
-
-    
-
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, rgb(247, 175, 175), rgb(230, 87, 87), rgb(216, 216, 248));
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
 }
 
-label{
-    font-size: larger;
+/* Form Title */
+.register h1 {
+    color: rgb(8, 8, 8);
+    font-weight: bolder;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: bounceIn 1s ease-in-out;
+}
+
+/* Labels */
+label {
+    font-size: 1.1rem;
     font-weight: bold;
-    margin-bottom: -20px;
-    
+    margin-bottom: 5px;
+    color: #333;
 }
-input{
-    width: 70%;
-    border-radius: 7px;
+
+/* Input Fields */
+input {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding: 10px;
+    height: 50px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input Hover Effect */
+input:hover {
+    border-color: #0066cc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    border-radius: 8px;
+    background-color: #0066cc;
+    height: 50px;
+    color: white;
+    font-size: 1.1rem;
     border: none;
-    gap:5px;
-    padding: 5px 0px 5px 5px;
-    
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.main{
-    display: flex;
-    flex-direction: column;
-    width: 98vw;
-    align-items: center;
-  
-    height: 80vh;
-    position: relative;
-    background-color: rgb(229, 196, 245);
-    margin: auto;
-    margin-top: 20px;
-    
-    
-    
-    
+/* Button Hover Effect */
+button:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
+}
 
-    
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
 }

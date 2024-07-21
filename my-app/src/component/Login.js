@@ -23,8 +23,12 @@ const Login = () => {
       userData,
       { withCredentials: true }
     );
-
+    const { token } = response.data;
+    if (token) {
+      localStorage.setItem("jwtToken", token);
+    }
     setUser(response.data.user);
+    console.log("User after login:", response.data); // Log the user data
     navigate("/");
     setEmail("");
     setPassword("");
@@ -37,24 +41,38 @@ const Login = () => {
           <div className="register">
             <h1>Login </h1>
 
-            <label>EMAIL</label>
+            <label style={{ marginRight: "185px" }}>EMAIL</label>
             <input
               type="text"
               placeholder="Email..."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <label>PASSWORD</label>
+            <label style={{ marginRight: "145px" }}>PASSWORD</label>
             <input
               type="text"
               placeholder="Password..."
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-
-            <button type="submit" class="btn btn-primary">
-              Login
-            </button>
+            <div
+              style={{
+                marginBottom: "15px",
+              }}
+            >
+              <button
+                type="submit"
+                style={{
+                  width: "80px",
+                  borderRadius: "5px",
+                  backgroundColor: "#0066cc",
+                  height: "40px",
+                  color: "white",
+                }}
+              >
+                Login
+              </button>
+            </div>
           </div>
         </form>
       </div>

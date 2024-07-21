@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="inner">
-        <div className="first">
+        <div className="first" style={{ marginTop: "15px" }}>
           <h2>MY_Blogs</h2>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
@@ -20,7 +20,7 @@ const Footer = () => {
             of Service
           </p>
         </div>
-        <div className="second">
+        <div className="second" style={{ marginTop: "15px" }}>
           <h3>Folow us on:</h3>
           <li>
             {" "}
@@ -41,7 +41,7 @@ const Footer = () => {
             Linkdin
           </li>
         </div>
-        <div className="third">
+        <div className="third" style={{ marginTop: "15px" }}>
           <h2>About Us:</h2>
           <p>
             We believe in building a community of like-minded individuals who

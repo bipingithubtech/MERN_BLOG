@@ -1,4 +1,99 @@
-.homepage{
-    height: 80vh;
-    border: 2px solid black;
-}
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Home Container */
+  .home-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f0f2f5;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  /* Left and Right Divs */
+  .home-left {
+    flex: 1;
+    background: url('https://plus.unsplash.com/premium_vector-1710073064088-7bafbc062aad?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+    background-size: cover;
+  }
+  
+  .home-right   {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    border-left: 1px solid #ddd;
+    animation: slideIn 2s ease-in-out;
+  }
+  
+  .home-right .title  {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  .home-right .description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 600px;
+    line-height: 1.6;
+    animation: fadeInUp 1.5s ease-in-out;
+  }
+  
+  .home-right .cta-button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 2s ease-in-out;
+  }
+  
+  .home-right .cta-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

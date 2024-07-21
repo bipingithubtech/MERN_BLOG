@@ -1,0 +1,174 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Main container */
+.maindiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #e2ebf8, #f5f7fa);
+  padding: 20px;
+  animation: backgroundAnimation 10s infinite alternate;
+}
+
+/* Form container */
+.formdiv {
+  width: 100%;
+  max-width: 800px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Form header */
+.formdiv h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.5rem;
+  font-weight: bold;
+  animation: slideInFromTop 1s ease-out;
+}
+
+/* Form element styles */
+.formdiv form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formdiv input,
+.formdiv select,
+.formdiv textarea,
+.formdiv button {
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Text inputs */
+.formdiv input[type="text"],
+.formdiv input[type="file"],
+.formdiv select {
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formdiv input[type="text"]:focus,
+.formdiv input[type="file"]:focus,
+.formdiv select:focus {
+  border-color: #28a745;
+  outline: none;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+}
+
+/* Textarea */
+.formdiv .description {
+  resize: vertical;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formdiv .description:focus {
+  border-color: #28a745;
+  outline: none;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+}
+
+/* Categories */
+.formdiv .category {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.formdiv .category-item {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  background-color: #e9ecef;
+  border-radius: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.formdiv .category-item p {
+  margin-right: 5px;
+}
+
+.formdiv .category-item:hover {
+  background-color: #007bff;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.formdiv button {
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.formdiv button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Add button next to select */
+.formdiv select + button {
+  margin-top: 0;
+  margin-left: 10px;
+  background-color: #6c757d;
+  transition: background-color 0.3s;
+}
+
+.formdiv select + button:hover {
+  background-color: #5a6268;
+}
+
+/* Animations */
+@keyframes backgroundAnimation {
+  0% {
+    background-color: #e2ebf8;
+  }
+  100% {
+    background-color: #f5f7fa;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

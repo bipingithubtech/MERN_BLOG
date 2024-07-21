@@ -68,10 +68,24 @@ const Register = () => {
               value={register.password}
               onChange={handleChange}
             />
-
-            <button type="submit" class="btn btn-primary">
-              SignUp
-            </button>
+            <div
+              style={{
+                marginBottom: "15px",
+              }}
+            >
+              <button
+                type="submit"
+                style={{
+                  width: "80px",
+                  borderRadius: "5px",
+                  backgroundColor: "#0066cc",
+                  height: "40px",
+                  color: "white",
+                }}
+              >
+                Login
+              </button>
+            </div>
           </div>
         </form>
       </div>
