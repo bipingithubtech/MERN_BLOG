@@ -7,6 +7,7 @@ import "../css/homepost.css";
 import Comments from "./Comments";
 import { FaUserEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { IF } from "../Url";
 
 const HomePost = () => {
   const [post, setPost] = useState(null);
@@ -50,6 +51,8 @@ const HomePost = () => {
         }
       );
       setComments([]);
+      setPost(null);
+      navigate("/");
       console.log("Post deleted successfully:", res.data);
     } catch (error) {
       console.error(
@@ -117,13 +120,14 @@ const HomePost = () => {
         <div className="homepost-mainsdiv">
           <div className="homepost-innerdiv">
             <div className="head_post">
+              <img
+                className="homepost-img"
+                src={`${IF}${post.photo}`}
+                alt={post.title}
+              />
               <h3 className="homepost-head">{post.title}</h3>
             </div>
-
             <div>
-              <img className="homepost-img" src={post.photo} alt={post.title} />
-            </div>
-            <h1>
               {user?._id === post?.userId && (
                 <div>
                   <p onClick={() => navigate(`/edit/${PostId}`)}>
@@ -134,7 +138,7 @@ const HomePost = () => {
                   </p>
                 </div>
               )}
-            </h1>
+            </div>
             <ul className="homepost-ul">
               <h3>Category</h3>
               {post.categories.map((cate, i) => (
@@ -147,7 +151,7 @@ const HomePost = () => {
             <div>
               {comments && <Comments comments={comments} post={post} />}
             </div>
-            <div>
+            <div className="homepost-comment-section">
               <input
                 className="homepost-comment-input"
                 value={comment}

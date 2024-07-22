@@ -1,44 +1,52 @@
+/* Menu Styles */
 .menu {
-    position: relative;
-    background-color: black;
-    padding: 10px;
-  }
-  
-  .menu h3 {
-    color: rgb(223, 5, 5);
-    margin: 10px 0;
-  }
-  
-  .menu h3 a {
-    color: rgb(250, 245, 245);
-    text-decoration: none;
-  }
-  
-  .menu h3 a:hover {
-    text-decoration: underline;
-  }
-  
-  .menu .cursor-pointer {
-    cursor: pointer;
-  }
-  
-  /* Adjust the menu to not affect the height of the navbar */
-  .navbar {
-    position: relative;
-    margin-right: 200px;
-    width: 100%;
-  }
-  
-  .menu {
-    position: absolute;
-    top: 100%;
-  
-    background-color: rgb(51, 50, 50);
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-  }
-  
+  position: absolute; /* Position the menu absolutely to overlay */
+  top: 100%; /* Position it just below the element that triggers it */
+  left: 0; /* Align it to the left of the triggering element */
+  background-color: rgb(15, 15, 15);
+  width: 200px; /* Adjust width to fit content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  z-index: 1000; /* Ensure it appears on top */
+}
+
+.menu h3 {
+  color: rgb(223, 5, 5);
+  margin: 10px 0;
+}
+
+.menu h3 a {
+  color: rgb(250, 245, 245);
+  text-decoration: none;
+}
+
+.menu h3 a:hover {
+  text-decoration: underline;
+}
+
+.menu .cursor-pointer {
+  cursor: pointer;
+}
+
+.menu ul {
+  list-style-type: none; /* Remove bullets from list */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+.menu ul li {
+  margin: 10px 0; /* Space between menu items */
+}
+
+.menu ul li a {
+  color: rgb(250, 245, 245);
+  text-decoration: none;
+  font-size: 1rem; /* Adjust font size */
+}
+
+.menu ul li a:hover {
+  text-decoration: underline;
+}

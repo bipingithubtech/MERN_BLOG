@@ -1,2 +1,1 @@
-const IF = "http://localhost:8000/images/";
-export default IF;
+export const IF = "http://localhost:8000/images/";

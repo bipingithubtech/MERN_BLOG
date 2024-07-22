@@ -1,23 +1,74 @@
-.inner{
- display: flex;
- flex-direction: row;
- justify-content: space-around;
- border: 2px solid black;
-color: white;
-background-color: black;
- 
-
+/* Footer Container */
+.footer {
+  height: 235px;
+  background-color: #210e25;
+  color: #fff;
   position: relative;
+  padding: 20px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
-.footer{
-  
-    height:210px ;
-    position: relative;
- 
-    background-color: rgb(73, 3, 3);
+
+/* Inner Container for Footer Sections */
+.inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+
 }
-.inner h2{
-    color: rgb(151, 39, 207);
-    font-weight: bolder;
-   
+
+/* Footer Sections */
+.first, .second, .third {
+  flex: 1;
+  margin: 0 10px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.first h2, .second h3, .third h2 {
+  color: #f1c40f;
+  margin-bottom: 15px;
+}
+
+.first p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.second li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.second li:hover {
+  color: #f1c40f;
+  transform: scale(1.1);
+}
+
+.second li svg {
+  margin-right: 8px;
+}
+
+.third p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

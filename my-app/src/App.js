@@ -14,6 +14,7 @@ import HomePost from "./component/HomePost";
 import Edit from "./component/Edit";
 import FirstPage from "./component/FirstPage";
 import Userpost from "./component/Userpost";
+import About from "./component/About";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="posts/:id" element={<HomePost />}></Route>
           <Route path="/edit/:id" element={<Edit />}></Route>
           <Route path="/userPost" element={<Userpost />}></Route>
+          <Route path="/about" element={<About />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -54,7 +54,7 @@ const Edit = () => {
 
     if (file) {
       const data = new FormData();
-      const filename = Date.now() + file.name;
+      const filename = file.name;
       data.append("name", filename);
       data.append("file", file);
       post.photo = filename; // Update photo to the new file name

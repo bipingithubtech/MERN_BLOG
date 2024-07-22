@@ -1,3 +1,4 @@
+// Footer.js
 import React from "react";
 import "../css/footer.css";
 import { IoLogoInstagram } from "react-icons/io5";
@@ -9,8 +10,8 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="inner">
-        <div className="first" style={{ marginTop: "15px" }}>
-          <h2>MY_Blogs</h2>
+        <div className="first">
+          <h2>BLOGZONE</h2>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
           </p>
@@ -20,28 +21,25 @@ const Footer = () => {
             of Service
           </p>
         </div>
-        <div className="second" style={{ marginTop: "15px" }}>
-          <h3>Folow us on:</h3>
+        <div className="second">
+          <h3>Follow us on:</h3>
           <li>
-            {" "}
             <FaFacebook />
             Facebook
           </li>
           <li>
-            {" "}
             <BsTwitterX />
-            twitter
+            Twitter
           </li>
           <li>
-            <IoLogoInstagram /> instagram
+            <IoLogoInstagram /> Instagram
           </li>
           <li>
-            {" "}
             <CiLinkedin />
-            Linkdin
+            LinkedIn
           </li>
         </div>
-        <div className="third" style={{ marginTop: "15px" }}>
+        <div className="third">
           <h2>About Us:</h2>
           <p>
             We believe in building a community of like-minded individuals who

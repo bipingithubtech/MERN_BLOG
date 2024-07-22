@@ -43,12 +43,29 @@ const CreatePost = () => {
     console.log(post);
     if (file) {
       const data = new FormData();
-      const filename = Date.now() + file.name;
+      console.log("file data ", file);
+      const filename = file.name;
       data.append("img", filename);
       data.append("file", file);
       post.photo = filename;
+      for (let [key, value] of data.entries()) {
+        if (value instanceof File) {
+          console.log(`${key}: ${value.name}`);
+        } else {
+          console.log(`${key}: ${value}`);
+        }
+      }
       try {
-        await axios.post("http://localhost:8000/api/upload", data);
+        const respon = await axios.post(
+          "http://localhost:8000/api/upload",
+          data,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log("Upload response:", respon.data);
       } catch (err) {
         console.log(err);
       }
