@@ -46,22 +46,34 @@ const connectDb = async () => {
     console.log("Error while connecting to DB", error); // Added error logging
   }
 };
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "images");
+//   },
+//   filename: (req, file, cb) => {
+//     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+//     cb(null, file.fieldname + "-" + uniqueSuffix + "-" + file.originalname);
+//   },
+// });
+
+// const upload = multer({ storage: storage });
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "images");
+    cb(null, "images"); // Directory where files are saved
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, file.fieldname + "-" + uniqueSuffix + "-" + file.originalname);
+    cb(null, file.originalname); // Save file with its original name
   },
 });
 
 const upload = multer({ storage: storage });
-
 // Corrected route path with leading /
 app.post("/api/upload", upload.single("file"), (req, res) => {
   console.log("file uploaded :", req.file);
-  res.status(200).json("image uploaded");
+  res.json({
+    filename: req.file.filename,
+    path: req.file.path,
+  });
 });
 const port = process.env.PORT || 3000; // Default to port 3000 if not set
 app.listen(port, () => {
